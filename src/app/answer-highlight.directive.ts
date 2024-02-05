@@ -15,7 +15,11 @@ export class AnswerHighlightDirective implements OnInit {
         filter((value) => value < 0.2)
       )
       .subscribe((value) => {
-        console.log(value);
+        if (value < 0.2) {
+          this.el.nativeElement.classList.add('close');
+        } else {
+          this.el.nativeElement.classList.remove('close');
+        }
       });
   }
 }
